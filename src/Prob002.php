@@ -42,9 +42,9 @@ class Prob002 {
 
     public function isEven($val)
     {
-      if($val % 2 !== 0)
-        return false;
-      else
+      if($val % 2 == 0)
         return true;
+      else
+        return false;
     }
 }
