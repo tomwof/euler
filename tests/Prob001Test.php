@@ -1,4 +1,5 @@
 <?php
+namespace tomwof\euler;
 include_once __DIR__ . '/../src/Prob001.php';
 
 class Prob001Test extends \PHPUnit_Framework_TestCase

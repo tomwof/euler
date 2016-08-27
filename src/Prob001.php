@@ -1,4 +1,5 @@
 <?php
+namespace tomwof\euler;
 class Prob001 {
     private $a;
     private $n;
