@@ -6,12 +6,16 @@ What is the largest prime factor of the number 600851475143 ?
 */
 class Prob003
 { 
+  factorsList: number[];
+  primesList: number[];
+  highestPrime: number;
+
   constructor(parameter: number)
   {
-    let factorsList: number[] = this.getFactorsOf(parameter);
-    let primesList: number[] = this.findPrimes(factorsList);
-    let highestPrime: number = this.getHighestNumber(primesList);
-    console.log("Highest Prime" + highestPrime);
+    this.factorsList = this.getFactors(parameter);
+    this.primesList = this.findPrimes(this.factorsList);
+    this.highestPrime = this.getHighestNumber(this.primesList);
+    console.log("Highest Prime: " + this.highestPrime);
   }
 
   getHighestNumber(parameter: number[])
@@ -25,31 +29,32 @@ class Prob003
       if(this.isPrime(item))
       {
       list.push(item);
-      console.log("Primes:" + list.toString());
+      console.log("Primes: " + list.toString());
       }
     return list;
   }
 
   isPrime(parameter:number)
   {
-    let list: number[] = this.getFactorsOf(parameter);
+    let list: number[] = this.getFactors(parameter);
     if(list[0] == parameter && list[1] == 1)
     return true;
   }
 
-  getFactorsOf(parameter:number)
+  getFactors(parameter:number)
   {
     let list: number[] = [];
     for (let i = parameter; i >= 0; i--)
     {
-    console.log("Testing:" + i);
+    console.log("Testing: " + i);
     if(parameter % i == 0)
       {
       list.push(i);
-      console.log("Found Factor:" + i);
+      console.log("Factor Found: " + i);
       }
     }
     return list;
   }
 }
-let test = new Prob003(13195);
+let test: Prob003;
+test = new Prob003(13195);
