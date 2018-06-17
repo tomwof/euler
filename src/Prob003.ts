@@ -17,9 +17,20 @@ class Prob003
     this.highestPrime = this.getHighestNumber(this.primesList);
   }
 
-  getHighestNumber(parameter: number[])
+  findFactors(parameter:number)
   {
-    return Math.max(...parameter);
+    let list: number[] = [];
+    for (let i = parameter; i >= 0; i--)
+      if(parameter % i == 0)
+        list.push(i);
+    return list;
+  }
+
+  isPrime(parameter:number)
+  {
+    let list: number[] = this.findFactors(parameter);
+    if(list[0] == parameter && list[1] == 1)
+      return true;
   }
   
   findPrimes(parameter: number[])
@@ -31,20 +42,9 @@ class Prob003
     return list;
   }
 
-  isPrime(parameter:number)
+  getHighestNumber(parameter: number[])
   {
-    let list: number[] = this.findFactors(parameter);
-    if(list[0] == parameter && list[1] == 1)
-      return true;
-  }
-
-  findFactors(parameter:number)
-  {
-    let list: number[] = [];
-    for (let i = parameter; i >= 0; i--)
-      if(parameter % i == 0)
-        list.push(i);
-    return list;
+    return Math.max(...parameter);
   }
 }
 

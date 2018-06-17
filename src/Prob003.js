@@ -10,8 +10,17 @@ var Prob003 = /** @class */ (function () {
         this.primesList = this.findPrimes(this.factorsList);
         this.highestPrime = this.getHighestNumber(this.primesList);
     }
-    Prob003.prototype.getHighestNumber = function (parameter) {
-        return Math.max.apply(Math, parameter);
+    Prob003.prototype.findFactors = function (parameter) {
+        var list = [];
+        for (var i = parameter; i >= 0; i--)
+            if (parameter % i == 0)
+                list.push(i);
+        return list;
+    };
+    Prob003.prototype.isPrime = function (parameter) {
+        var list = this.findFactors(parameter);
+        if (list[0] == parameter && list[1] == 1)
+            return true;
     };
     Prob003.prototype.findPrimes = function (parameter) {
         var list = [];
@@ -22,17 +31,8 @@ var Prob003 = /** @class */ (function () {
         }
         return list;
     };
-    Prob003.prototype.isPrime = function (parameter) {
-        var list = this.findFactors(parameter);
-        if (list[0] == parameter && list[1] == 1)
-            return true;
-    };
-    Prob003.prototype.findFactors = function (parameter) {
-        var list = [];
-        for (var i = parameter; i >= 0; i--)
-            if (parameter % i == 0)
-                list.push(i);
-        return list;
+    Prob003.prototype.getHighestNumber = function (parameter) {
+        return Math.max.apply(Math, parameter);
     };
     return Prob003;
 }());
