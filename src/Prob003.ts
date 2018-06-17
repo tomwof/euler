@@ -14,7 +14,7 @@ class Prob003
   {
     this.factorsList = this.findFactors(parameter);
     this.primesList = this.findPrimes(this.factorsList);
-    this.highestPrime = this.getHighestNumber(this.primesList);
+    this.highestPrime = Math.max(...this.primesList);
   }
 
   findFactors(parameter:number)
@@ -40,11 +40,6 @@ class Prob003
       if(this.isPrime(item))
         list.push(item);
     return list;
-  }
-
-  getHighestNumber(parameter: number[])
-  {
-    return Math.max(...parameter);
   }
 }
 

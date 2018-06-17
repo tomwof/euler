@@ -8,7 +8,7 @@ var Prob003 = /** @class */ (function () {
     function Prob003(parameter) {
         this.factorsList = this.findFactors(parameter);
         this.primesList = this.findPrimes(this.factorsList);
-        this.highestPrime = this.getHighestNumber(this.primesList);
+        this.highestPrime = Math.max.apply(Math, this.primesList);
     }
     Prob003.prototype.findFactors = function (parameter) {
         var list = [];
@@ -30,9 +30,6 @@ var Prob003 = /** @class */ (function () {
                 list.push(item);
         }
         return list;
-    };
-    Prob003.prototype.getHighestNumber = function (parameter) {
-        return Math.max.apply(Math, parameter);
     };
     return Prob003;
 }());
