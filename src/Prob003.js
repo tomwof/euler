@@ -17,31 +17,28 @@ var Prob003 = /** @class */ (function () {
         var list = [];
         for (var _i = 0, parameter_1 = parameter; _i < parameter_1.length; _i++) {
             var item = parameter_1[_i];
-            if (this.isPrime(item)) {
+            if (this.isPrime(item))
                 list.push(item);
-                console.log("Primes: " + list.toString());
-            }
         }
         return list;
     };
     Prob003.prototype.isPrime = function (parameter) {
         var list = this.findFactors(parameter);
-        if (list[0] == parameter++ && list[1] == 1)
+        if (list[0] == parameter && list[1] == 1)
             return true;
     };
     Prob003.prototype.findFactors = function (parameter) {
         var list = [];
-        for (var i = parameter; i >= 0; i--) {
-            //console.log("Testing: " + i);
-            if (parameter % i == 0) {
+        for (var i = parameter; i >= 0; i--)
+            if (parameter % i == 0)
                 list.push(i);
-                console.log("Factor Found: " + i);
-            }
-        }
         return list;
     };
     return Prob003;
 }());
 var test;
 test = new Prob003(13195);
-console.log(test.highestPrime);
+console.log("factors: " + test.factorsList.toString());
+console.log("primes: " + test.primesList.toString());
+if (test.highestPrime == 29)
+    console.log("PASS: " + test.highestPrime);

@@ -21,40 +21,37 @@ class Prob003
   {
     return Math.max(...parameter);
   }
+  
   findPrimes(parameter: number[])
   {
     let list: number[] = [];
     for(let item of parameter)
       if(this.isPrime(item))
-      {
-      list.push(item);
-      console.log("Primes: " + list.toString());
-      }
+        list.push(item);
     return list;
   }
 
   isPrime(parameter:number)
   {
     let list: number[] = this.findFactors(parameter);
-    if(list[0] == parameter++ && list[1] == 1)
-    return true;
+    if(list[0] == parameter && list[1] == 1)
+      return true;
   }
 
   findFactors(parameter:number)
   {
     let list: number[] = [];
     for (let i = parameter; i >= 0; i--)
-    {
-    //console.log("Testing: " + i);
-    if(parameter % i == 0)
-      {
-      list.push(i);
-      console.log("Factor Found: " + i);
-      }
-    }
+      if(parameter % i == 0)
+        list.push(i);
     return list;
   }
 }
-let test: Prob003;
+
+var test: Prob003;
 test = new Prob003(13195);
-console.log(test.highestPrime);
+console.log("factors: " + test.factorsList.toString());
+console.log("primes: " + test.primesList.toString());
+
+if(test.highestPrime == 29)
+  console.log("PASS: " + test.highestPrime);
