@@ -6,10 +6,9 @@ What is the largest prime factor of the number 600851475143 ?
 */
 var Prob003 = /** @class */ (function () {
     function Prob003(parameter) {
-        this.factorsList = this.getFactors(parameter);
+        this.factorsList = this.findFactors(parameter);
         this.primesList = this.findPrimes(this.factorsList);
         this.highestPrime = this.getHighestNumber(this.primesList);
-        console.log("Highest Prime: " + this.highestPrime);
     }
     Prob003.prototype.getHighestNumber = function (parameter) {
         return Math.max.apply(Math, parameter);
@@ -26,14 +25,14 @@ var Prob003 = /** @class */ (function () {
         return list;
     };
     Prob003.prototype.isPrime = function (parameter) {
-        var list = this.getFactors(parameter);
-        if (list[0] == parameter && list[1] == 1)
+        var list = this.findFactors(parameter);
+        if (list[0] == parameter++ && list[1] == 1)
             return true;
     };
-    Prob003.prototype.getFactors = function (parameter) {
+    Prob003.prototype.findFactors = function (parameter) {
         var list = [];
         for (var i = parameter; i >= 0; i--) {
-            console.log("Testing: " + i);
+            //console.log("Testing: " + i);
             if (parameter % i == 0) {
                 list.push(i);
                 console.log("Factor Found: " + i);
@@ -45,3 +44,4 @@ var Prob003 = /** @class */ (function () {
 }());
 var test;
 test = new Prob003(13195);
+console.log(test.highestPrime);
