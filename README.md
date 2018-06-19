@@ -1,2 +1,2 @@
-# [link](https://projecteuler.net)
+# [projecteuler.net](https://projecteuler.net)
 ---
